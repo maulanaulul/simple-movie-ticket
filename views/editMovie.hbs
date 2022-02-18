@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,400&family=Varela&display=swap"
+        rel="stylesheet">
+    <title>Cinemix</title>
+</head>
+
+<body class="bg-dark">
+    {{>navbar}}
+
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 col-md-4 mt-5 register d-flex align-items-center">
+                <img class="img-fluid" src="../public/img/undraw_save_to_bookmarks_re_8ajf (1).svg" alt="">
+            </div>
+
+            <div class="col-12 col-md-8 mt-5 login ">
+                <h3 class="text-white text-center text-login">Edit movie </h3>
+                <form action="/edit-movie/{{edit.id}}" method="post" enctype="multipart/form-data">
+                    <div class="mb-3 row mt-3">
+                        <label for="staticEmail" class="text-white col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="title" required class="form-control" id="inputPassword" value="{{edit.name}}"> 
+                        </div>
+                    </div>
+                    <input type="number" name="editId" value="{{edit.id}}" style="display: none;">
+                    <div class="mb-3 row ">
+                        <label for="staticEmail" class="text-white col-sm-2 col-form-label">Hours</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="hours" required class="form-control" id="inputPassword" value="{{edit.movie_hour}}">
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="input-group mb-3">
+                        <label class="input-group-text bg-danger text-white" for="inputGroupSelect01">Genre</label>
+                        <select class="form-select" name="genre" required id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">Romance</option>
+                            <option value="2">Comedy</option>
+                            <option value="3">Action</option>
+                            <option value="4">Fantasy</option>
+                        </select>
+                    </div>
+
+                    
+
+
+                    <div class="div-btn d-flex justify-content-center mt-4">
+                        <input class="login-submit" type="submit" value="Edit Movie">
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    <div class="container-fluid footer">
+        <p class="text-white text-center">Copyright Maulana Ulul Azmi 2021</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>$(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('.navbar').addClass('shadow-lg');
+            } else {
+                $('.navbar').removeClass('shadow-lg');
+            }
+        })
+        function handleChange() {
+            let previewImage = document.getElementById('preview-tumb')
+            const value = URL.createObjectURL(event.target.files[0])
+            previewImage.innerHTML = `<img class="img-fluid" style="width:100%; height:100%;" src="${value}" />`
+        }
+    </script>
+</body>
+
+</html>

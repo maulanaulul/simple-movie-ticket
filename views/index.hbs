@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400&family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,400&family=Varela&display=swap"
+        rel="stylesheet">
+    <title>Cinemix</title>
+</head>
+
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark   fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">
+                <h2>CINEMIXX</h2>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/movie">Movie</a>
+                    </li>
+                    {{#if isAdmin}}
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/dashboard">Dashboard</a>
+                    </li>
+                    {{/if}}
+
+                    {{#if isLogin}}
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Account
+                        </a>
+                        
+                        <ul class="ms-auto dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item " href="/logout">Logout</a></li>
+                            <li><a class="dropdown-item " href="/account">Manage Account</a></li>
+
+
+                        </ul>
+                    </li>
+                    {{else}}
+                     <li class="nav-item">
+                        <a class="nav-link text-white" href="/login">Login</a>
+                    </li>
+                    {{/if}}
+
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    {{!-- Carousel --}}
+    <div class="container carousel">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active img-fluid" data-bs-interval="10000">
+                    <img src="https://collider.com/wp-content/uploads/inception_movie_poster_banner_04.jpg"
+                        class="d-block w-100 img-fluid" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                         <h1>CINEMIXX</h1>
+                        <p class="mt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui quae, mollitia minus, quaerat praesentium maxime animi placeat dolores quam quasi veniam sunt adipisci labore aliquid rerum illo enim! Atque, ipsum?</p>
+                        <button type="button" class="btn btn-danger mt-1">Show More</button>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="https://collider.com/wp-content/uploads/inception_movie_poster_banner_04.jpg"
+                        class="d-block w-100 img-fluid" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1>CINEMIXX</h1>
+                        <p class="mt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui quae, mollitia minus, quaerat praesentium maxime animi placeat dolores quam quasi veniam sunt adipisci labore aliquid rerum illo enim! Atque, ipsum?</p>
+                        <button type="button" class="btn btn-danger mt-1">Show More</button>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://collider.com/wp-content/uploads/inception_movie_poster_banner_04.jpg"
+                        class="d-block w-100 img-fluid" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                         <h1>CINEMIXX</h1>
+                        <p class="mt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui quae, mollitia minus, quaerat praesentium maxime animi placeat dolores quam quasi veniam sunt adipisci labore aliquid rerum illo enim! Atque, ipsum?</p>
+                        <button type="button" class="btn btn-danger mt-1">Show More</button>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    {{!-- NOW PLAYING --}}
+
+    <div class="container">
+        <h3 class="text-center text-white mt-4">What's Playing Now</h3>
+
+        <div class="row">
+            <div class="col-6 col-lg-3">
+                <div class="card">
+                    <img class="img-fluid"
+                        src="{{movies.1.image}}"
+                        alt="">
+                    <div class="caption text-center">
+                        <p class="mt-2">{{movies.1.name}} </p>
+                        <a href="/movie">
+                        <button type="button" class="btn btn-danger mt-1">Show More</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+           <div class="col-6 col-lg-3">
+                <div class="card">
+                    <img class="img-fluid"
+                        src="{{movies.5.image}}"
+                        alt="">
+                    <div class="caption text-center">
+                        <p class="mt-2">{{movies.5.name}} </p>
+                        <a href="/movie">
+                        <button type="button" class="btn btn-danger mt-1">Show More</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <div class="card">
+                    <img class="img-fluid"
+                        src="{{movies.9.image}}"
+                        alt="">
+                    <div class="caption text-center">
+                        <p class="mt-2">{{movies.9.name}} </p>
+                       <a href="/movie">
+                        <button type="button" class="btn btn-danger mt-1">Show More</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <div class="card">
+                    <img class="img-fluid"
+                        src="{{movies.13.image}}"
+                        alt="">
+                    <div class="caption text-center">
+                        <p class="mt-2">{{movies.13.name}} </p>
+                        <a href="/movie">
+                        <button type="button" class="btn btn-danger mt-1">Show More</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            {{!-- NEWS --}}
+
+            <h3 class="text-center text-white mt-5">Our News</h3>
+            <div class="row mt-5">
+                <div class="col-12 col-md-6">
+                    <img src="https://mmc.tirto.id/image/2021/09/18/antarafoto-pembukaan-kembali-bioskop-di-kudus-170921-yn-1_ratio-16x9.jpg"
+                        alt="" class="img-fluid img-news">
+                </div>
+                <div class="col-12 col-md-6 text-center m-auto">
+                    <h4 class="text-white mt-4">NEW NORMAL </h4>
+                    <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur nobis
+                        possimus maiores suscipit vitae consectetur repellat non id consequuntur incidunt. Corrupti
+                        natus veniam nihil nesciunt quos voluptatum labore eum unde.</p>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+    <div class="container-fluid footer">
+        <p class="text-white text-center">Copyright Maulana Ulul Azmi 2021</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>$(window).on('scroll', function () {
+            if ($(window).scrollTop()) {
+                $('.navbar').addClass('shadow-lg');
+            } else {
+                $('.navbar').removeClass('shadow-lg');
+            }
+        })</script>
+</body>
+
+</html>
